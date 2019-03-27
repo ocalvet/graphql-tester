@@ -2,9 +2,12 @@ const express = require('express');
 const expressGraphQL = require('express-graphql');
 const schema = require('./schema');
 const app = express();
+const cors = require('cors');
 const port = process.env.APP_PORT;
 
 if (!port) throw new Error('Set APP_PORT environment variable');
+
+app.use(cors());
 
 app.use(
   '/graphql',
